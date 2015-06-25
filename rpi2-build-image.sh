@@ -21,8 +21,8 @@
 #    See "###### Build the image file ######" sction to adjust SD Card sizes as per your requirement     #
 ##########################################################################################################
 
-set -e
-set -x
+#set -e
+#set -x
 
 RELEASE=vivid
 BASEDIR=/srv/rpi2/${RELEASE}
@@ -222,8 +222,11 @@ umount "$MOUNTDIR/boot/firmware"
 umount "$MOUNTDIR"
 
 kpartx -d $image
-echo "created image $image"
 
 bmaptool create -o "$bmap" "$image"
+
+echo =============================================================================
+echo "Created image $image"
+echo =============================================================================
 
 # Done!
