@@ -1,8 +1,8 @@
 #!/bin/sh
 
-########################################################################
+###########################################################################################################
 # rpi2-build-image
-# Copyright (C) 2015 Ryan Finnie <ryan@finnie.org>
+# Copyright (C) 2015 Saeid Ghazagh <sghazagh@elar-systems.com>
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -17,7 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-########################################################################
+##########################################################################################################
+#    See "###### Build the image file ######" sction to adjust SD Card sizes as per your requirement     #
+##########################################################################################################
 
 # This is a stub from rpi-build-image.sh. Useful for rebuilding the image after making minor changes that don't 
 # require the entire chroot be rebuilt
@@ -53,7 +55,7 @@ rm -f $R/usr/bin/qemu-arm-static
 rm -f $R/etc/ssh/ssh_host_*
 rm -fr $R/usr/sbin/policy-rc.d
 
-# Build the image file
+###### Build the image file ######
 #--- Adjust as per your need ----
 BOOTSIZE=64
 MIN_PARTITION_FREE_SIZE=10
