@@ -1,6 +1,6 @@
 #!/bin/sh
 
-########################################################################
+###########################################################################################################
 # rpi2-build-image
 # Copyright (C) 2015 Saeid Ghazagh <sghazagh@elar-systems.com>
 #
@@ -17,7 +17,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-########################################################################
+##########################################################################################################
+#    See "###### Build the image file ######" sction to adjust SD Card sizes as per your requirement     #
+##########################################################################################################
 
 set -e
 set -x
@@ -146,12 +148,13 @@ rm -f $R/usr/bin/qemu-arm-static
 rm -f $R/etc/ssh/ssh_host_*
 rm -fr $R/usr/sbin/policy-rc.d
 
-# Build the image file
+###### Build the image file ######
 #--- Adjust as per your need ----
 bootsize=64
 MIN_PARTITION_FREE_SIZE=10
 ROOTFSPATH=$R
 #-------------------------------
+
 echo "Creating RPi2 SDCard Image ..."
 echo "=======================================" 
 DATE="$(date +%Y-%m-%d)"
@@ -168,11 +171,10 @@ echo "Size of Partition 2 -->" ${EXT_SIZE}"M"
 
 SD_SIZE=$(($bootsize + $EXT_SIZE))
 echo "Total Size of SD Card Image -->" $SD_SIZE"M"
-
 sleep 5
-
 image="$BASEDIR/${DATE}-ubuntu-${RELEASE}.img"
 bmap="$BASEDIR/${DATE}-ubuntu-${RELEASE}.bmap"
+
 dd if=/dev/zero of=$image bs=1M count=${SD_SIZE}
 device=`losetup -f --show $image`
 echo "Image $image created and mounted as $device ..."
