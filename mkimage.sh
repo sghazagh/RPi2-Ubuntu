@@ -24,8 +24,8 @@
 # This is a stub from rpi-build-image.sh. Useful for rebuilding the image after making minor changes that don't 
 # require the entire chroot be rebuilt
 
-set -e
-set -x
+#set -e
+#set -x
 
 RELEASE=vivid
 BASEDIR=/srv/rpi2/${RELEASE}
@@ -129,7 +129,11 @@ umount "$MOUNTDIR/boot/firmware"
 umount "$MOUNTDIR"
 
 kpartx -d $image
-echo "created image $image"
 
 bmaptool create -o "$bmap" "$image"
 
+echo =============================================================================
+echo "Created image $image"
+echo =============================================================================
+
+#Done
