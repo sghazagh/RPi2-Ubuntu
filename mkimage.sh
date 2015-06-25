@@ -27,7 +27,7 @@
 set -e
 set -x
 
-RELEASE=utopic
+RELEASE=vivid
 BASEDIR=/srv/rpi2/${RELEASE}
 BUILDDIR=${BASEDIR}/build
 SHELL=/bin/bash
