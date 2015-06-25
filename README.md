@@ -35,7 +35,13 @@ There are a few custom tweaks that have been included.
  There is no raspi-config so any of the things that it does will need to be done manually. However porting it over is something I would like to do eventually.
 
 ###Upgrading to new Ubuntu releases
-See the [wiki page](https://github.com/FuturePilot/Pi2buntu/wiki/Upgrading-to-new-Ubuntu-releases) on how to do this
+It is possible to upgrade using the do-release-upgrade utility, however it requires some manual intervention.
+
+After running sudo do-release-upgrade it will eventually warn you that third party sources have been disabled. DO NOT CONTINUE YET. Don't do anything. Leave that prompt up and open another terminal or screen window. Open /etc/apt/sources.list.d/fo0bar-ubuntu-rpi2-*.list with your favorite editor and remove the comment in front of the deb line. The distribution should already be changed to the version you are upgrading to, but if it's not, change that too. Save the file. Repeat for /etc/apt/sources.list.d/futurepilot-ubuntu-raspberry-pi-2-*.list as well.
+
+Now go back to the do-release-upgrade window and continue with the upgrade. This will ensure that packages from the PPAs will be used over the ones from the Ubuntu repos.
+
+It may be possible to do the upgrade without following these steps and just leave the PPAs disabled until after the upgrade but I did not care to find out if it would work or epic fail and decided to be safe than sorry.
 
 ###Special Thanks
 Not all of this is my work so this is to give credit where credit is due.
