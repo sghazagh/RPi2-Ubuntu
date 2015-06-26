@@ -1,7 +1,7 @@
 # RPi2-Ubuntu
 ###############
 This script is based on Pi2buntu script available on "https://github.com/FuturePilot/Pi2buntu" for creating a minimal Ubuntu image for the Raspberry Pi 2. This script only supports the Raspberry Pi 2 as it uses the Ubuntu armhf port which is optimized for armv7.
-This version has been optimized the SDCard size and added few more applications.
+This version has been optimized the SDCard size and fixed few settings.
 
 If you just want an image and don't want to mess around with creating your own, see the [release page](https://github.com/sghazagh/RPi2-Ubuntu/releases).
 
