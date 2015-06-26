@@ -1,10 +1,8 @@
 #!/bin/bash
 #Read the BOOTSIZE (VFAT Partition Size) from the file. This size set by user inside the build image scripts
 file="/root/vfat_part_size" 
-name=$(cat "$file")        
-
 BOOTSIZE=$(cat "$file")
-EXT4_STAR_SECTOR=($BOOTSIZE+1)*1024*1024)/512
+let EXT4_PART_STAR=($BOOTSIZE+1)*1024*1024/512
 
 fdisk /dev/mmcblk0 <<EOF
 d
